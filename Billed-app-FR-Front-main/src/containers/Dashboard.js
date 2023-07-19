@@ -14,13 +14,14 @@ export const filteredBills = (data, status) => {
       if (typeof jest !== 'undefined') {
         selectCondition = (bill.status === status)
       }
-      /* istanbul ignore next */
-      else {
+      else {/* istanbul ignore next */
         // in prod environment
-        const userEmail = JSON.parse(localStorage.getItem("user")).email
-        selectCondition =
+        selectCondition = (bill.status === status)
+      const userEmail = JSON.parse(localStorage.getItem("user")).email
+
+      selectCondition =
           (bill.status === status) &&
-          ![...USERS_TEST, userEmail].includes(bill.email)
+        ![...USERS_TEST, userEmail].includes(bill.email)
       }
 
       return selectCondition
@@ -28,11 +29,11 @@ export const filteredBills = (data, status) => {
 }
 
 export const card = (bill) => {
-  const firstAndLastNames = bill.email.split('@')[0]
-  const firstName = firstAndLastNames.includes('.') ?
-    firstAndLastNames.split('.')[0] : ''
-  const lastName = firstAndLastNames.includes('.') ?
-  firstAndLastNames.split('.')[1] : firstAndLastNames
+  const firstAndLastNames = bill && bill.email ? bill.email.split('@')[0] : '';
+  const firstName = firstAndLastNames.includes('.') ? firstAndLastNames.split('.')[0] : '';
+    
+  const lastName = firstAndLastNames.includes('.') ? firstAndLastNames.split('.')[1] : firstAndLastNames
+  
 
   return (`
     <div class='bill-card' id='open-bill${bill.id}' data-testid='open-bill${bill.id}'>
@@ -85,7 +86,7 @@ export default class {
     if (typeof $('#modaleFileAdmin1').modal === 'function') $('#modaleFileAdmin1').modal('show')
   }
 
-  handleEditTicket(e, bill, bills) {
+  handleEditTicket( bill, bills) {
     if (this.counter === undefined || this.id !== bill.id) this.counter = 0
     if (this.id === undefined || this.id !== bill.id) this.id = bill.id
     if (this.counter % 2 === 0) {
@@ -110,7 +111,7 @@ export default class {
     $('#btn-refuse-bill').click((e) => this.handleRefuseSubmit(e, bill))
   }
 
-  handleAcceptSubmit = (e, bill) => {
+  handleAcceptSubmit = (bill) => {
     const newBill = {
       ...bill,
       status: 'accepted',
@@ -120,7 +121,7 @@ export default class {
     this.onNavigate(ROUTES_PATH['Dashboard'])
   }
 
-  handleRefuseSubmit = (e, bill) => {
+  handleRefuseSubmit = ( bill) => {
     const newBill = {
       ...bill,
       status: 'refused',
@@ -130,7 +131,7 @@ export default class {
     this.onNavigate(ROUTES_PATH['Dashboard'])
   }
 
-  handleShowTickets(e, bills, index) {
+  handleShowTickets(bills, index) {
     if (this.counter === undefined || this.index !== index) this.counter = 0
     if (this.index === undefined || this.index !== index) this.index = index
     if (this.counter % 2 === 0) {
