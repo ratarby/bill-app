@@ -9,7 +9,6 @@ export default class Logout {
   }
   
   handleClick = (e) => {
-    e.preventDefault()
     this.localStorage.clear()
     this.onNavigate(ROUTES_PATH['Login'])
   }

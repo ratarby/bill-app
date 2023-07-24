@@ -8,7 +8,7 @@ import ArrowIcon from '../assets/svg/arrow.js'
 export default ({ data, loading, error }) => {
 
   if (loading) {
-    return LoadingPage(data)
+    return LoadingPage()
   } else if (error) {
     return ErrorPage(error)
   }
