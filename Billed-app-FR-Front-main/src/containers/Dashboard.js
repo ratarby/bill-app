@@ -72,6 +72,8 @@ export default class {
     this.document = document
     this.onNavigate = onNavigate
     this.store = store
+    this.bills = bills
+    this.localStorage = localStorage
     $('#arrow-icon1').click((e) => this.handleShowTickets(e, bills, 1))
     $('#arrow-icon2').click((e) => this.handleShowTickets(e, bills, 2))
     $('#arrow-icon3').click((e) => this.handleShowTickets(e, bills, 3))

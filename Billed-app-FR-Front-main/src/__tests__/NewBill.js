@@ -2,9 +2,11 @@
  * @jest-environment jsdom
  */
 
-import { screen } from "@testing-library/dom"
+import { fireEvent, screen } from "@testing-library/dom" ;
 import NewBillUI from "../views/NewBillUI.js"
 import NewBill from "../containers/NewBill.js"
+import mockStore from "../__mocks__/store.js";
+import { ROUTES, ROUTES_PATH } from "../constants/routes.js";
 
 
 describe("Given I am connected as an employee", () => {
