@@ -10,6 +10,8 @@ export default class NewBill {
     const formNewBill = this.document.querySelector(`form[data-testid="form-new-bill"]`)
     formNewBill.addEventListener("submit", this.handleSubmit)
     const file = this.document.querySelector(`input[data-testid="file"]`)
+    const fileExtension = file.name.split(".").pop()
+    if (fileExtension != "pdf" && fileExtension != "png" && fileExtension != "jpg")
     file.addEventListener("change", this.handleChangeFile)
     this.fileUrl = null
     this.fileName = null
@@ -63,6 +65,7 @@ export default class NewBill {
   }
 
   // not need to cover this function by tests
+  /*istambul ignore next */
   updateBill = (bill) => {
     if (this.store) {
       this.store

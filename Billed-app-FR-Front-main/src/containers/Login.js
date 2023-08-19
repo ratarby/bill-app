@@ -19,14 +19,14 @@ export default class Login {
     e.preventDefault()
     const user = {
       type: "Employee",
-      email: this.document.querySelector(`input[data-testid="employee-email-input"]`).value,
-      password: this.document.querySelector(`input[data-testid="employee-password-input"]`).value,
+      email: e.target.querySelector(`input[data-testid="employee-email-input"]`).value,
+      password: e.target.querySelector(`input[data-testid="employee-password-input"]`).value,
       status: "connected"
     }
     this.localStorage.setItem("user", JSON.stringify(user))
     this.login(user)
       .catch(
-        (err) => this.createUser(user)
+        () => this.createUser(user)
       )
       .then(() => {
         this.onNavigate(ROUTES_PATH['Bills'])
@@ -41,14 +41,14 @@ export default class Login {
     e.preventDefault()
     const user = {
       type: "Admin",
-      email: this.document.querySelector(`input[data-testid="admin-email-input"]`).value,
-      password: this.document.querySelector(`input[data-testid="admin-password-input"]`).value,
+      email: e.target.querySelector(`input[data-testid="admin-email-input"]`).value,
+      password: e.target.querySelector(`input[data-testid="admin-password-input"]`).value,
       status: "connected"
     }
     this.localStorage.setItem("user", JSON.stringify(user))
     this.login(user)
       .catch(
-        (err) => this.createUser(user)
+        () => this.createUser(user)
       )
       .then(() => {
         this.onNavigate(ROUTES_PATH['Dashboard'])
@@ -59,6 +59,7 @@ export default class Login {
   }
 
   // not need to cover this function by tests
+   /* istanbul ignore next */
   login = (user) => {
     if (this.store) {
       return this.store
@@ -74,6 +75,7 @@ export default class Login {
   }
 
   // not need to cover this function by tests
+   /* istanbul ignore next */
   createUser = (user) => {
     if (this.store) {
       return this.store

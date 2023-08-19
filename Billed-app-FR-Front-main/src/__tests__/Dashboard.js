@@ -77,6 +77,7 @@ describe('Given I am connected as an Admin', () => {
       expect(handleShowTickets1).toHaveBeenCalled()
       await waitFor(() => screen.getByTestId(`open-bill47qAXb6fIm2zOKkLzMro`) )
       expect(screen.getByTestId(`open-bill47qAXb6fIm2zOKkLzMro`)).toBeTruthy()
+
       icon2.addEventListener('click', handleShowTickets2)
       userEvent.click(icon2)
       expect(handleShowTickets2).toHaveBeenCalled()
@@ -108,11 +109,13 @@ describe('Given I am connected as an Admin', () => {
       })
       document.body.innerHTML = DashboardUI({ data: { bills } })
       const handleShowTickets1 = jest.fn((e) => dashboard.handleShowTickets(e, bills, 1))
+
       const icon1 = screen.getByTestId('arrow-icon1')
       icon1.addEventListener('click', handleShowTickets1)
       userEvent.click(icon1)
       expect(handleShowTickets1).toHaveBeenCalled()
       expect(screen.getByTestId(`open-bill47qAXb6fIm2zOKkLzMro`)).toBeTruthy()
+      
       const iconEdit = screen.getByTestId('open-bill47qAXb6fIm2zOKkLzMro')
       userEvent.click(iconEdit)
       expect(screen.getByTestId(`dashboard-form`)).toBeTruthy()
