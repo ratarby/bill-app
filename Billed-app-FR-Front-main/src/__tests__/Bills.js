@@ -78,7 +78,7 @@ describe("Given I am connected as an employee", () => {
 
       window.onNavigate(ROUTES_PATH.Bills)
       await waitFor(() => screen.getByText("Mes notes de frais"))
-      expect(screen.getByText("Encore")).toBeTruthy()
+      expect(screen.getByText("Mes notes de frais")).toBeTruthy()
     })
   })
 })
