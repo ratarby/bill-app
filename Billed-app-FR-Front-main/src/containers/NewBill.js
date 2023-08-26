@@ -21,7 +21,7 @@ export default class NewBill {
     const fileExtension = file.name.split('.').pop()
     if(fileExtension != "pdf" && fileExtension != "jpg" && fileExtension != "jpeg" && fileExtension != "png"){
       console.log(fileExtension)
-      alert('Veuillez sélectionner un fichier pdf, jpg, ou png')
+      alert('File extension not allowed') 
       return;
     }
     const filePath = e.target.value.split(/\\/g)
