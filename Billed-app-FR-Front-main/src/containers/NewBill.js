@@ -20,8 +20,9 @@ export default class NewBill {
     const file = this.document.querySelector(`input[data-testid="file"]`).files[0]
     const fileExtension = file.name.split('.').pop()
     if(fileExtension != "pdf" && fileExtension != "jpg" && fileExtension != "jpeg" && fileExtension != "png"){
-      console.log(fileExtension)
+      console.log(`File extension "${fileExtension}" not allowed`)
       alert('File extension not allowed') 
+      e.target.value = ""
       return;
     }
     const filePath = e.target.value.split(/\\/g)
