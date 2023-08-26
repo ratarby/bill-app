@@ -11,5 +11,6 @@ export default class Logout {
   handleClick = (e) => {
     this.localStorage.clear()
     this.onNavigate(ROUTES_PATH['Login'])
+    window.location.reload()
   }
 } 

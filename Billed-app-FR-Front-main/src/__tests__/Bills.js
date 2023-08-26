@@ -12,13 +12,11 @@ import userEvent from "@testing-library/user-event";
 import Bills from "../containers/Bills.js";
 import router from "../app/Router.js";
 
-//   
 jest.mock("../app/Store", () => mockStore);
 
 
 describe("Given I am connected as an employee", () => {
   describe("When I am on Bills Page", () => {
-    // test  bill icon in vertical layout should be highlighted
     test("Then bill icon in vertical layout should be highlighted", async () => {
 
       Object.defineProperty(window, 'localStorage', { value: localStorageMock })
@@ -41,7 +39,6 @@ describe("Given I am connected as an employee", () => {
       // test if mail icon contains "active-icon" class
       expect(mailIcon.classList.contains('active-icon')).not.toBeTruthy()
     })
-    // test bills date should be ordered from earliest to latest
     test("Then bills date should be ordered from earliest to latest", () => {
       document.body.innerHTML = BillsUI({ data: bills })
       const dates = screen.getAllByText(/^(19|20)\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$/i).map(a => a.innerHTML)
