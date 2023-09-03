@@ -20,11 +20,6 @@ export default class NewBill {
   //J'arrive sur la page Bills, je clique sur l'icône "voir" pour consulter le 
   //justificatif : la modale s'ouvre, mais il n'y a pas d'image. 
 
-  //Si je me connecte à présent en tant qu'Admin, et que je clique sur le ticket
-  // correspondant, le nom du fichier affiché est null. De même, lorsque je 
-  //clique sur l'icône "voir" pour consulter le justificatif : la modale 
-  //s'ouvre, mais il n'y a pas d'image.
-
   //===> correction : ajout code 
 
   // const fileExtension = file.name.split('.').pop() 
