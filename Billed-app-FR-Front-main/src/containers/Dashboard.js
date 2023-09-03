@@ -111,6 +111,7 @@ export default class {
     $('#btn-accept-bill').click((e) => this.handleAcceptSubmit(e, bill))
     $('#btn-refuse-bill').click((e) => this.handleRefuseSubmit(e, bill))
   }
+  
 
   handleAcceptSubmit = (e, bill) => {
     const newBill = {
@@ -146,9 +147,10 @@ export default class {
         .html("")
       this.counter ++
     }
-
+    // [4 - Bug Fixed] - Je suis connecté en tant qu'administrateur RH, je déplie une liste de tickets (par exemple : statut "validé"), je sélectionne un ticket, puis je déplie une seconde liste (par exemple : statut "refusé") ==> je  peux  sélectionner un ticket de la première liste.
+    // Ajout d'une méthode jQuery off() qui permet de supprimer, au click les eventListeners existants et d'ajouter de nouveaux eventListeners
     bills.forEach(bill => {
-      $(`#open-bill${bill.id}`).click((e) => this.handleEditTicket(e, bill, bills))
+      $(`#open-bill${bill.id}`).off().click((e) => this.handleEditTicket(e, bill, bills))
     })
 
     return bills

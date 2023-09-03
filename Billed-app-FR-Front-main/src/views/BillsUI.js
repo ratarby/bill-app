@@ -19,10 +19,25 @@ const row = (bill) => {
     `)
   }
 
-const rows = (data) => {
- return (data && data.length) ? data.sort((a, b) => a.date.localeCompare(b.date)).map(bill => row(bill)).join("") : "";
-}
+  // [1 - Bug report] - Le test Bills.js est au rouge/FAIL (src/__tests__/Bills.js) / les notes de frais ne s'affichent pas par ordre décroissant.
+  //===> Ajout de la méthode sort() pour trier les dates de manière décroissante en fonction de leurs dates (__test__/Bills.js) 
 
+/*const rows = (data) => {
+  return data && data.length
+  ? data
+      .map((bill) => row(bill))
+      .join("")
+  : "";
+};*/
+  const rows = (data) => {
+    return data && data.length
+      ? data
+          .sort((a, b) => (a.date < b.date ? -1 : 1))
+          .map((bill) => row(bill))
+          .join("")
+      : "";
+  };
+  
 export default ({ data: bills, loading, error }) => {
   
   

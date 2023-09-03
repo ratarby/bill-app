@@ -27,7 +27,8 @@ export default class {
     $('#modaleFile').find(".modal-body").html(`<div style='text-align: center;' class="bill-proof-container"><img width=${imgWidth} src=${billUrl} alt="Bill" /></div>`)
     $('#modaleFile').modal('show')
   }
-
+  // [1 Bug report] idem ===> ajout de code 
+  // .sort((a, b) => (b.date > a.date ? -1 : 1))
   getBills = () => {
     if (this.store) {
       return this.store
@@ -35,7 +36,7 @@ export default class {
       .list()
       .then(snapshot => {
         const bills = snapshot
-          
+          .sort((a, b) => (b.date > a.date ? -1 : 1)) 
             .map(doc => {
               try {
                 return {

@@ -36,7 +36,15 @@ export default class Login {
       })
 
   }
-
+      // [2 - Bug report - Login] - si un administrateur remplit correctement 
+      //les champs du Login, il devrait naviguer sur la page Dashboard", 
+      //le test est passé au rouge  - Le test Login.js est au rouge ==> FAIL
+      // Erreur en console "Cannot read properties of null (reading 'value')
+      //at HTMLFormElement.handleSubmitAdmin (Login.js:46:81)"qui redirige vers ce fichier (Login.js). 
+      //Le test Login.js est au rouge ==> FAIL.IL y a une mauvaise selection de l'input via le "data-testid"
+      //===> correction : 
+            // - "data-testid=admin-email-input" et non pas "data-testid=employee-email-input"
+            // - "data-testid=admin-password-input" et non pas "data-testid=employee-password-input"
   handleSubmitAdmin = e => {
     e.preventDefault()
     const user = {
