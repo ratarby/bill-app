@@ -15,7 +15,7 @@ export default class NewBill {
     this.billId = null
     new Logout({ document, localStorage, onNavigate })
   }
-  //Je suis connecté en tant qu'employé, je saisis une note de frais avec un 
+  //[3 - Bug Hunt] Je suis connecté en tant qu'employé, je saisis une note de frais avec un 
   //justificatif qui a une extension différente de pdf,jpg, jpeg ou png, j'envoie. 
   //J'arrive sur la page Bills, je clique sur l'icône "voir" pour consulter le 
   //justificatif : la modale s'ouvre, mais il n'y a pas d'image. 
