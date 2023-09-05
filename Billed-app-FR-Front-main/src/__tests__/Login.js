@@ -57,17 +57,17 @@ describe("Given that I am a user on login page", () => {
 
       const inputEmailUser = screen.getByTestId("employee-email-input");
       fireEvent.change(inputEmailUser, { target: { value: inputData.email } });
-      expect(inputEmailUser.value).toBe(inputData.email);
+      expect(inputEmailUser.value).toBe(inputData.email); // test if inputEmailUser's value is equal to email's inputData
 
       const inputPasswordUser = screen.getByTestId("employee-password-input");
       fireEvent.change(inputPasswordUser, {
-        target: { value: inputData.password },
+        target: { value: inputData.password }, 
       });
-      expect(inputPasswordUser.value).toBe(inputData.password);
+      expect(inputPasswordUser.value).toBe(inputData.password); // test if inputPasswordUser's value is equal to password's inputData
 
       const form = screen.getByTestId("form-employee");
 
-      // localStorage should be populated with form data
+      // localStorage should be populated with form data 
       Object.defineProperty(window, "localStorage", {
         value: {
           getItem: jest.fn(() => null),
@@ -98,8 +98,8 @@ describe("Given that I am a user on login page", () => {
       form.addEventListener("submit", handleSubmit);
       fireEvent.submit(form);
       expect(handleSubmit).toHaveBeenCalled();
-      expect(window.localStorage.setItem).toHaveBeenCalled();
-      expect(window.localStorage.setItem).toHaveBeenCalledWith(
+      expect(window.localStorage.setItem).toHaveBeenCalled(); // test if localStorage.setItem is called
+      expect(window.localStorage.setItem).toHaveBeenCalledWith( // test if localStorage.setItem is called with correct arguments
         "user",
         JSON.stringify({
           type: "Employee",
@@ -122,17 +122,17 @@ describe("Given that I am a user on login page", () => {
       document.body.innerHTML = LoginUI();
 
       const inputEmailUser = screen.getByTestId("admin-email-input");
-      expect(inputEmailUser.value).toBe("");
+      expect(inputEmailUser.value).toBe(""); // test if inputEmailUser's value to be ""
 
       const inputPasswordUser = screen.getByTestId("admin-password-input");
-      expect(inputPasswordUser.value).toBe("");
+      expect(inputPasswordUser.value).toBe(""); // test if inputPasswordUser's value to be ""
 
       const form = screen.getByTestId("form-admin");
       const handleSubmit = jest.fn((e) => e.preventDefault());
 
       form.addEventListener("submit", handleSubmit);
       fireEvent.submit(form);
-      expect(screen.getByTestId("form-admin")).toBeTruthy();
+      expect(screen.getByTestId("form-admin")).toBeTruthy(); // test if form admin is rendered
     });
   });
 
@@ -169,13 +169,13 @@ describe("Given that I am a user on login page", () => {
 
       const inputEmailUser = screen.getByTestId("admin-email-input");
       fireEvent.change(inputEmailUser, { target: { value: inputData.email } });
-      expect(inputEmailUser.value).toBe(inputData.email);
+      expect(inputEmailUser.value).toBe(inputData.email); // test if inputEmailUser's value is equal to email's inputData
 
       const inputPasswordUser = screen.getByTestId("admin-password-input");
       fireEvent.change(inputPasswordUser, {
         target: { value: inputData.password },
       });
-      expect(inputPasswordUser.value).toBe(inputData.password);
+      expect(inputPasswordUser.value).toBe(inputData.password); // test if inputPasswordUser's value is equal to password's inputData
 
       const form = screen.getByTestId("form-admin");
 
@@ -223,7 +223,7 @@ describe("Given that I am a user on login page", () => {
     });
 
     test("It should renders HR dashboard page", () => {
-      expect(screen.queryByText("Validations")).toBeTruthy();
+      expect(screen.queryByText("Validations")).toBeTruthy(); // test 
     });
   });
 });

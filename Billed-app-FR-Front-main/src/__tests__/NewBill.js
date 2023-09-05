@@ -48,8 +48,8 @@ describe("Given I am connected as an employee", () => {
 
       const file = new File(['image'], 'image.png', {type: 'image/png'});
       const handleChangeFile = jest.fn((e) => newBillInit.handleChangeFile(e));
-      const formNewBill = screen.getByTestId("form-new-bill")
-      const billFile = screen.getByTestId('file');
+      const formNewBill = screen.getByTestId("form-new-bill") // test if the formNewBill exists
+      const billFile = screen.getByTestId('file'); // test if file exists
 
       billFile.addEventListener("change", handleChangeFile);     
       userEvent.upload(billFile, file)
@@ -57,10 +57,10 @@ describe("Given I am connected as an employee", () => {
       expect(billFile.files[0].name).toBeDefined()
       expect(handleChangeFile).toBeCalled()
       
-      const handleSubmit = jest.fn((e) => newBillInit.handleSubmit(e));
+      const handleSubmit = jest.fn((e) => newBillInit.handleSubmit(e)); 
       formNewBill.addEventListener("submit", handleSubmit);     
       fireEvent.submit(formNewBill);
-      expect(handleSubmit).toHaveBeenCalled();
+      expect(handleSubmit).toHaveBeenCalled(); // test if the function handleSubmit is called
     })
 
     test("Then must save the bill", async () => {
@@ -81,12 +81,12 @@ describe("Given I am connected as an employee", () => {
       })
   
       const formNewBill = screen.getByTestId("form-new-bill")
-      expect(formNewBill).toBeTruthy()
+      expect(formNewBill).toBeTruthy() // test if the formNewBill exists
       
       const handleSubmit = jest.fn((e) => newBillInit.handleSubmit(e));
       formNewBill.addEventListener("submit", handleSubmit);
       fireEvent.submit(formNewBill);
-      expect(handleSubmit).toHaveBeenCalled();
+      expect(handleSubmit).toHaveBeenCalled(); // test if the function handleSubmit is called
     });
   })
   // tester la fonction createBill

@@ -64,6 +64,7 @@ describe("Given I am connected as an employee", () => {
       await waitFor(() => screen.getByTestId('btn-new-bill'))
       const newBillIcon = screen.getByTestId('btn-new-bill')
       //to-do write expect expression
+      // test if newBillIcon exists
       expect(newBillIcon && newBillIcon.toString().length>0).toBe(true)
     })
     test("bills should fetches from mock API GET", async () => {
@@ -77,7 +78,7 @@ describe("Given I am connected as an employee", () => {
 
       window.onNavigate(ROUTES_PATH.Bills)
       await waitFor(() => screen.getByText("Mes notes de frais"))
-      expect(screen.getByText("Mes notes de frais")).toBeTruthy()
+      expect(screen.getByText("Mes notes de frais")).toBeTruthy() // test if the text "Mes notes de frais" is true
     })
   })
 })
@@ -85,8 +86,8 @@ describe("Given I am connected as an employee", () => {
 describe("When an error occurs on API", () => {
   beforeEach(() => {// before each test
     jest.spyOn(mockStore, "bills") // jest verify 
-    Object.defineProperty(window,'localStorage',{ value: localStorageMock })
-    window.localStorage.setItem('user', JSON.stringify({type: 'Employee', email: "a@a"}))
+    Object.defineProperty(window,'localStorage',{ value: localStorageMock }) 
+    window.localStorage.setItem('user', JSON.stringify({type: 'Employee', email: "a@a"})) 
 
     const root = document.createElement("div")
     root.setAttribute("id", "root")
@@ -106,7 +107,7 @@ describe("When an error occurs on API", () => {
     window.onNavigate(ROUTES_PATH.Bills)
     await new Promise(process.nextTick);
     const message =  await screen.getByText(/Error 404/)
-    expect(message).toBeTruthy()
+    expect(message).toBeTruthy() // test if the text "Error 404" is true
   })
 
   test("fetches messages from an API and fails with 500 message error", async () => {
@@ -122,7 +123,7 @@ describe("When an error occurs on API", () => {
     window.onNavigate(ROUTES_PATH.Bills)
     await new Promise(process.nextTick);
     const message = screen.getByText(/Erreur 500/)
-    expect(message).toBeTruthy()
+    expect(message).toBeTruthy() // test if the text "Erreur 500" is true
   })
 
   // test when I click on new bill button I should be redirected to new bill page, then I should be able to see the form
@@ -133,14 +134,13 @@ describe("When an error occurs on API", () => {
     window.onNavigate(ROUTES_PATH.Bills)
     const newBill = screen.getByTestId("btn-new-bill")
     const handleClick = jest.fn(newBill.handleClick)
-
     newBill.addEventListener('click', handleClick)
     userEvent.click(newBill)
-    expect(handleClick).toHaveBeenCalled()
+    expect(handleClick).toHaveBeenCalled() // test if the function handleClick is called
 
     window.onNavigate(ROUTES_PATH.NewBill)
     await waitFor(() => screen.getByText("Envoyer une note de frais"))
-    expect(screen.getByText('Envoyer une note de frais')).toBeTruthy()
+    expect(screen.getByText('Envoyer une note de frais')).toBeTruthy() // test if the text "Envoyer une note de frais" is true
   })
 
   // test when I click on eye icon, I should see the picture linked to the bill 
@@ -168,8 +168,8 @@ describe("When an error occurs on API", () => {
     iconEye.forEach((icon) => {
       icon.addEventListener("click", handleClickIconEye(icon))
       userEvent.click(icon)
-      expect(handleClickIconEye).toHaveBeenCalled()
+      expect(handleClickIconEye).toHaveBeenCalled() // test if the function handleClickIconEye is called
     })
-    expect(modaleFile.classList.contains("show")).toBeTruthy()
+    expect(modaleFile.classList.contains("show")).toBeTruthy() // test if the class "show" is true
   })
 })
