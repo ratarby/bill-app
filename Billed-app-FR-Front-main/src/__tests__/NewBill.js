@@ -48,14 +48,14 @@ describe("Given I am connected as an employee", () => {
 
       const file = new File(['image'], 'image.png', {type: 'image/png'});
       const handleChangeFile = jest.fn((e) => newBillInit.handleChangeFile(e));
-      const formNewBill = screen.getByTestId("form-new-bill") // test if the formNewBill exists
-      const billFile = screen.getByTestId('file'); // test if file exists
+      const formNewBill = screen.getByTestId("form-new-bill") 
+      const billFile = screen.getByTestId('file'); 
 
       billFile.addEventListener("change", handleChangeFile);     
       userEvent.upload(billFile, file)
       
-      expect(billFile.files[0].name).toBeDefined()
-      expect(handleChangeFile).toBeCalled()
+      expect(billFile.files[0].name).toBeDefined() // test if the name of the file is defined
+      expect(handleChangeFile).toBeCalled() // test if the function handleChangeFile is called
       
       const handleSubmit = jest.fn((e) => newBillInit.handleSubmit(e)); 
       formNewBill.addEventListener("submit", handleSubmit);     
@@ -81,7 +81,7 @@ describe("Given I am connected as an employee", () => {
       })
   
       const formNewBill = screen.getByTestId("form-new-bill")
-      expect(formNewBill).toBeTruthy() // test if the formNewBill exists
+      expect(formNewBill).toBeTruthy() // test if the formNewBill exists (true)
       
       const handleSubmit = jest.fn((e) => newBillInit.handleSubmit(e));
       formNewBill.addEventListener("submit", handleSubmit);
