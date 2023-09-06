@@ -7,9 +7,6 @@
 
 - [01_bug_report_src_containers_Bill](./01_bug_report_src_containers_Bills.png)
 - path : [Billed-app-FR-Front-main/src/views/BillsUI](./../../Billed-app-FR-Front-main/src/containers/Bills.js)
-
-- [01_bug_report_src_containers_Bill](./01_bug_report_src_containers_Bills.png)
-- path : [Billed-app-FR-Front-main/src/views/BillsUI](./../../Billed-app-FR-Front-main/src/containers/Bills.js)
   
 - [01_bug_report_src___tests___Bills](./01_bug_report_src___tests___Bills.png)
 - path : [Billed-app-FR-Front-main/src/views/BillsUI](./../../Billed-app-FR-Front-main/src/__tests__/Bills.js)
