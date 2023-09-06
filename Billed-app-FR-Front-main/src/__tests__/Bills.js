@@ -43,7 +43,11 @@ describe("Given I am connected as an employee", () => {
       document.body.innerHTML = BillsUI({ data: bills })
       const dates = screen.getAllByText(/^(19|20)\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$/i).map(a => a.innerHTML)
 
-      // [1 - Bug report] - FAIL src/__tests__/Bills.js Le test Bills / les notes de frais s'affichent par ordre décroissant est passé au rouge ==> correction de l'ordre de tri de l'antiChrono pour trier les notes de frais à la date la plus récente - OK
+      // [1 - Bug report] - FAIL src/__tests__/Bills.js  
+      // les notes de frais s'affichent par ordre 
+      // décroissant est passé au rouge 
+      //==> correction de l'ordre de tri de l'antiChrono pour trier les notes de 
+      // frais à la date la plus récente - OK
       const antiChrono = (a, b) => (a > b ? 1 : -1)
       const datesSorted = [...dates].sort(antiChrono)
       expect(dates).toEqual(datesSorted)

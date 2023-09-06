@@ -46,7 +46,7 @@ un [screenshot au format PNG](./docs/rapport_de_test_Jest.png) sur l’ensemble 
 
 ### rapport de couverture Jest
 
-un [screenshot au format PNG](./docs/rapport_de_couverture_Jest.png) sur le rapport de couverture Jest
+un [screenshot au format PNG](./docs/rapport_de_couverture.png) sur le rapport de couverture Jest
 
 ### plan de tests End-to-End, parcours Employé
 

@@ -27,8 +27,10 @@ export default class {
     $('#modaleFile').find(".modal-body").html(`<div style='text-align: center;' class="bill-proof-container"><img width=${imgWidth} src=${billUrl} alt="Bill" /></div>`)
     $('#modaleFile').modal('show')
   }
-  // [1 Bug report] idem ===> ajout de code 
-  // .sort((a, b) => (b.date > a.date ? -1 : 1))
+  // [1 - Bug report] - Le test Bills.js est au rouge/FAIL (src/__tests__/Bills.js) 
+  // les notes de frais ne s'affichent pas par ordre décroissant.
+  //===> Ajout de la méthode sort() pour trier les dates de manière décroissante 
+  // les notes de frais s'affichent par ordre fonction de leurs dates 
   getBills = () => {
     if (this.store) {
       return this.store

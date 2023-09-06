@@ -43,8 +43,8 @@ export default class Login {
       //at HTMLFormElement.handleSubmitAdmin (Login.js:46:81)"qui redirige vers ce fichier (Login.js). 
       //Le test Login.js est au rouge ==> FAIL. IL y a une mauvaise selection de l'input via le "data-testid"
       //===> correction : 
-            // - "data-testid=admin-email-input" et non pas "data-testid=employee-email-input"
-            // - "data-testid=admin-password-input" et non pas "data-testid=employee-password-input"
+            // - "input[data-testid="admin-email-input"]" et non pas "input[data-testid="employee-email-input"]"
+            // - "input[data-testid="admin-password-input" et non pas "input[data-testid="employee-password-input"
   handleSubmitAdmin = e => {
     e.preventDefault()
     const user = {
