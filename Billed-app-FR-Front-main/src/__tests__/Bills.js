@@ -172,7 +172,7 @@ describe("When an error occurs on API", () => {
     iconEye.forEach((icon) => {
       icon.addEventListener("click", handleClickIconEye(icon))
       userEvent.click(icon)
-      expect(handleClickIconEye).toHaveBeenCalled() // test if the function handleClickIconEye is called
+      expect(handleClickIconEye).toHaveBeenCalled() // test if the  handleClickIconEye is called
     })
     expect(modaleFile.classList.contains("show")).toBeTruthy() // test if the class "show" is true
   })

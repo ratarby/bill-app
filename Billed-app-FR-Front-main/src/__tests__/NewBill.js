@@ -55,12 +55,12 @@ describe("Given I am connected as an employee", () => {
       userEvent.upload(billFile, file)
       
       expect(billFile.files[0].name).toBeDefined() // test if the name of the file is defined
-      expect(handleChangeFile).toBeCalled() // test if the function handleChangeFile is called
+      expect(handleChangeFile).toBeCalled() // test if handleChangeFile is called
       
       const handleSubmit = jest.fn((e) => newBillInit.handleSubmit(e)); 
       formNewBill.addEventListener("submit", handleSubmit);     
       fireEvent.submit(formNewBill);
-      expect(handleSubmit).toHaveBeenCalled(); // test if the function handleSubmit is called
+      expect(handleSubmit).toHaveBeenCalled(); // test if  handleSubmit is called
     })
 
     test("Then must save the bill", async () => {
@@ -86,7 +86,7 @@ describe("Given I am connected as an employee", () => {
       const handleSubmit = jest.fn((e) => newBillInit.handleSubmit(e));
       formNewBill.addEventListener("submit", handleSubmit);
       fireEvent.submit(formNewBill);
-      expect(handleSubmit).toHaveBeenCalled(); // test if the function handleSubmit is called
+      expect(handleSubmit).toHaveBeenCalled(); // test if handleSubmit is called
     });
   })
   // tester la fonction createBill
