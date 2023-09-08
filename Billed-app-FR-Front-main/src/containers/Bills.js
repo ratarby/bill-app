@@ -31,6 +31,8 @@ export default class {
   // les notes de frais ne s'affichent pas par ordre décroissant.
   //===> Ajout de la méthode sort() pour trier les dates de manière décroissante 
   // les notes de frais s'affichent par ordre fonction de leurs dates 
+  //.sort((a, b) => (a.date < b.date ? -1 : 1))
+
   getBills = () => {
     if (this.store) {
       return this.store
@@ -38,7 +40,7 @@ export default class {
       .list()
       .then(snapshot => {
         const bills = snapshot
-          .sort((a, b) => (b.date > a.date ? -1 : 1)) 
+          .sort((a, b) => (a.date < b.date ? -1 : 1)) 
             .map(doc => {
               try {
                 return {
